@@ -1,11 +1,17 @@
 package br.com.screenshow.screenshow;
 
+import br.com.screenshow.screenshow.model.DadosEpisodio;
 import br.com.screenshow.screenshow.model.DadosSerie;
+import br.com.screenshow.screenshow.model.DadosTemporada;
+import br.com.screenshow.screenshow.principal.Principal;
 import br.com.screenshow.screenshow.service.ConsumoApi;
 import br.com.screenshow.screenshow.service.ConverteDados;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class ScreenshowApplication implements CommandLineRunner {
@@ -16,15 +22,8 @@ public class ScreenshowApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		var consumoApi = new ConsumoApi();
-		// String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" diver", "+") + "&apikey=b776c8d7";
-		var json = consumoApi.obterDados("https://www.omdbapi.com/?t=gilmore+girls&apikey=b776c8d7");
-		//System.out.println(json);
-		//json = consumoApi.obterDados("https://coffee.alexflipnote.dev/random.json");
-		System.out.println(json);
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
 
+			Principal principal = new Principal();
+			principal.exibeMenu();
 	}
 }
